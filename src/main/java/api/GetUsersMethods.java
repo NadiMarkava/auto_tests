@@ -8,12 +8,14 @@ import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "${base_url}/user?page=1&limit=10", methodType = HttpMethodType.GET)
+@Endpoint(url = "${base_url}/user?page=${page}&limit=${limit}", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/users/_get_all/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetUsersMethods extends AbstractDummyApiMethod {
 
-    public GetUsersMethods() {
+    public GetUsersMethods(int page, int limit) {
        super();
+       replaceUrlPlaceholder("page", String.valueOf(page));
+       replaceUrlPlaceholder("limit", String.valueOf(limit));
     }
 }

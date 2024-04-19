@@ -13,11 +13,9 @@ import com.zebrunner.carina.utils.config.Configuration;
 @RequestTemplatePath(path = "api/users/_post/rq.json")
 @ResponseTemplatePath(path = "api/users/_post/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class PostUserMethod extends AbstractApiMethodV2 {
+public class PostUserMethod extends AbstractDummyApiMethod {
 
     public PostUserMethod() {
         super("api/users/_post/rq.json", "api/users/_post/rs.json", "api/users/user.properties");
-        setHeader("app-id", "6620cffacfa53cd7255caba0");
-        replaceUrlPlaceholder("base_url", Configuration.getRequired("dummyapi.api_url"));
     }
 }

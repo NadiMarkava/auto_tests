@@ -1,12 +1,5 @@
 {
   <#if puttitle??>"title": "${puttitle}",</#if>
-  <#if putlastName??>"lastName": "${putlastName}",</#if>
-  <#if putphone??>"phone": "${putphone}",</#if>
-  "location": {
-    <#if putstreet??>"street": "${putstreet}",</#if>
-    <#if putcity??>"city": "${putcity}",</#if>
-    <#if putstate??>"state": "${putstate}",</#if>
-    <#if putcountry??>"country": "${putcountry}",</#if>
-    <#if puttimezone??>"timezone": "${puttimezone}"</#if>
-  }
+  <#if putfirstName??>"firstName": "${putfirstName}",</#if>
+  <#if putlastName??>"lastName": "${putlastName}"</#if>
 }

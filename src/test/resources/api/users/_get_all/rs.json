@@ -71,7 +71,7 @@
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     }
   ],
-  "total": 99,
-  "page": 1,
-  "limit": 10
+  "total": "regex:[0-9]{2,3}",
+  "page": "regex:[0-9]{1}",
+  "limit": "regex:[0-9]{2}"
 }

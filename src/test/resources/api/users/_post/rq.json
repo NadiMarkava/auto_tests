@@ -1,6 +1,6 @@
 {
-  <#if posttitle??>"title": "${posttitle}",</#if>
-  <#if postfirstName??>"firstName": "${postfirstName}",</#if>
-  <#if postlastName??>"lastName": "${postlastName}",</#if>
-  <#if postemail??>"email": "${postemail}"</#if>
+  <#if title??>"title": "${title}",</#if>
+  <#if firstName??>"firstName": "${firstName}",</#if>
+  <#if lastName??>"lastName": "${lastName}",</#if>
+  <#if email??>"email": "${email}"</#if>
 }

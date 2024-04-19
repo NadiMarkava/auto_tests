@@ -3,15 +3,18 @@ import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.core.registrar.tag.Priority;
 import com.zebrunner.carina.core.registrar.tag.TestPriority;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.PropertyUtils;
+import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.lang.invoke.MethodHandles;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Properties;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class APISampleTest implements IAbstractTest {
 
@@ -20,7 +23,7 @@ public class APISampleTest implements IAbstractTest {
     @Test()
     @MethodOwner(owner = "nknysh")
     public void testGetUsers() {
-        GetUsersMethods getUsersMethods = new GetUsersMethods();
+        GetUsersMethods getUsersMethods = new GetUsersMethods(1, 10);
         getUsersMethods.callAPIExpectSuccess();
         getUsersMethods.validateResponse();
         getUsersMethods.validateResponseAgainstSchema("api/users/_get_all/rs.schema");
@@ -29,10 +32,14 @@ public class APISampleTest implements IAbstractTest {
     @Test()
     @MethodOwner(owner = "nknysh")
     public void testGetUser() {
-        GetUserMethods getUserMethods = new GetUserMethods("60d0fe4f5311236168a109ca");
-        getUserMethods.callAPIExpectSuccess();
-        getUserMethods.validateResponse();
-        getUserMethods.validateResponseAgainstSchema("api/users/_get/rs.schema");
+        GetUsersMethods getUsersMethods = new GetUsersMethods(1, 10);
+        Response response = getUsersMethods.callAPI();
+        List<String> ids = response.jsonPath().getList("data.id");
+        String id = ids.get(new Random().nextInt(ids.size()));
+        GetUserByIdMethod getUserMethod = new GetUserByIdMethod(id);
+        getUserMethod.callAPIExpectSuccess();
+        getUserMethod.validateResponse();
+        getUserMethod.validateResponseAgainstSchema("api/users/_get/rs.schema");
     }
 
     @Test()
@@ -48,7 +55,8 @@ public class APISampleTest implements IAbstractTest {
     @MethodOwner(owner = "nknysh")
     @TestPriority(Priority.P1)
     public void testUpdateUser() {
-        PutUserMethod putUserMethod = new PutUserMethod("60d0fe4f5311236168a109ca");
+        String id = getIdCreatedUser();
+        PutUserMethod putUserMethod = new PutUserMethod(id);
         putUserMethod.setProperties("api/users/user.properties");
         putUserMethod.callAPIExpectSuccess();
         putUserMethod.validateResponse();
@@ -57,9 +65,19 @@ public class APISampleTest implements IAbstractTest {
     @Test()
     @MethodOwner(owner = "nknysh")
     @TestPriority(Priority.P1)
-    public void testDeleteUsers() {
-        DeleteUserMethod deleteUserMethod = new DeleteUserMethod("6622173d5d8af9b278276061");
+    public void testDeleteUsers() throws IOException {
+        String deletePath = "src/test/resources/api/users/_delete/rs.json";
+        String id = getIdCreatedUser();
+        DeleteUserByIdMethod deleteUserMethod = new DeleteUserByIdMethod(id);
+        String.format(Files.readString(Path.of(deletePath)), id);
         deleteUserMethod.callAPIExpectSuccess();
         deleteUserMethod.validateResponse();
+    }
+
+    public String getIdCreatedUser() {
+        PostUserMethod postUserMethod = new PostUserMethod();
+        postUserMethod.setProperties("api/users/user.properties");
+        Response response = postUserMethod.callAPI();
+        return response.path("id").toString();
     }
 }
