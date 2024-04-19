@@ -1,0 +1,20 @@
+{
+  "id": "regex:[a-z0-9]{24}",
+  "firstName": "type:String",
+  <#if puttitle??>"title": "${puttitle}",</#if>
+  <#if putlastName??>"lastName": "${putlastName}",</#if>
+  "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/(men|women)\\/[a-z0-9]*\\.jpg",
+  "gender": "regex:male|female",
+  "email": "regex:[A-Za-z0-9-_.]+@example\\.com",
+  "dateOfBirth": "type:String",
+  <#if putphone??>"phone": "${putphone}",</#if>
+  "location": {
+    <#if putstreet??>"street": "${putstreet}",</#if>
+    <#if putcity??>"city": "${putcity}",</#if>
+    <#if putstate??>"state": "${putstate}",</#if>
+    <#if putcountry??>"country": "${putcountry}",</#if>
+    <#if puttimezone??>"timezone": "${puttimezone}",</#if>
+  },
+  "registerDate": "type:String",
+  "updatedDate": "type:String"
+}
