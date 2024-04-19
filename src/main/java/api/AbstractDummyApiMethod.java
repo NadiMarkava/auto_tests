@@ -8,16 +8,15 @@ import static api.HttpParameter.API_ID;
 public abstract class AbstractDummyApiMethod extends AbstractApiMethodV2 {
 
     public AbstractDummyApiMethod() {
-        setHeader(API_ID.getName(), getAppId());
-        replaceUrlPlaceholder("base_url", Configuration.getRequired("dummyapi.api_url"));
+        setParams();
     }
     public AbstractDummyApiMethod(String rqPath, String rsPath, String propertiesPath) {
         super(rqPath, rsPath, propertiesPath);
-        setHeader(API_ID.getName(), getAppId());
-        replaceUrlPlaceholder("base_url", Configuration.getRequired("dummyapi.api_url"));
+        setParams();
     }
 
-    private String getAppId() {
-        return R.CONFIG.getDecrypted("app_id");
+    private void setParams(){
+        setHeader(API_ID.getName(), R.CONFIG.getDecrypted("app_id"));
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("dummyapi.api_url"));
     }
 }

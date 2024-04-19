@@ -12,9 +12,10 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import static api.UsersAPIUtil.postUserAndGetId;
 
 public class APISampleTest implements IAbstractTest {
 
@@ -55,7 +56,7 @@ public class APISampleTest implements IAbstractTest {
     @MethodOwner(owner = "nknysh")
     @TestPriority(Priority.P1)
     public void testUpdateUser() {
-        String id = getIdCreatedUser();
+        String id = postUserAndGetId();
         PutUserMethod putUserMethod = new PutUserMethod(id);
         putUserMethod.setProperties("api/users/user.properties");
         putUserMethod.callAPIExpectSuccess();
@@ -67,17 +68,10 @@ public class APISampleTest implements IAbstractTest {
     @TestPriority(Priority.P1)
     public void testDeleteUsers() throws IOException {
         String deletePath = "src/test/resources/api/users/_delete/rs.json";
-        String id = getIdCreatedUser();
+        String id = postUserAndGetId();
         DeleteUserByIdMethod deleteUserMethod = new DeleteUserByIdMethod(id);
         String.format(Files.readString(Path.of(deletePath)), id);
         deleteUserMethod.callAPIExpectSuccess();
         deleteUserMethod.validateResponse();
-    }
-
-    public String getIdCreatedUser() {
-        PostUserMethod postUserMethod = new PostUserMethod();
-        postUserMethod.setProperties("api/users/user.properties");
-        Response response = postUserMethod.callAPI();
-        return response.path("id").toString();
     }
 }
