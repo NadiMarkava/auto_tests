@@ -1,21 +1,28 @@
 package api;
 
-import api.AbstractDummyApiMethod;
 import com.zebrunner.carina.api.annotation.Endpoint;
 import com.zebrunner.carina.api.annotation.ResponseTemplatePath;
 import com.zebrunner.carina.api.annotation.SuccessfulHttpStatus;
 import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
-import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "${base_url}/user?page=${page}&limit=${limit}", methodType = HttpMethodType.GET)
+@Endpoint(url = "${base_url}/user", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/users/_get_all/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetUsersMethods extends AbstractDummyApiMethod {
 
-    public GetUsersMethods(int page, int limit) {
+    private String pageNumber;
+    private String pageLimit;
+
+    public GetUsersMethods() {
        super();
-       replaceUrlPlaceholder("page", String.valueOf(page));
-       replaceUrlPlaceholder("limit", String.valueOf(limit));
+    }
+
+    public void setPage(String pageNumber) {
+        this.addUrlParameter("page", pageNumber);
+    }
+
+    public void setLimit(String limit) {
+        this.addUrlParameter("limit", limit);
     }
 }

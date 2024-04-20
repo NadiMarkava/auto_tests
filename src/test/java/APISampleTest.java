@@ -24,7 +24,9 @@ public class APISampleTest implements IAbstractTest {
     @Test()
     @MethodOwner(owner = "nknysh")
     public void testGetUsers() {
-        GetUsersMethods getUsersMethods = new GetUsersMethods(1, 10);
+        GetUsersMethods getUsersMethods = new GetUsersMethods();
+        getUsersMethods.setPage("1");
+        getUsersMethods.setLimit("10");
         getUsersMethods.callAPIExpectSuccess();
         getUsersMethods.validateResponse();
         getUsersMethods.validateResponseAgainstSchema("api/users/_get_all/rs.schema");
@@ -33,7 +35,7 @@ public class APISampleTest implements IAbstractTest {
     @Test()
     @MethodOwner(owner = "nknysh")
     public void testGetUser() {
-        GetUsersMethods getUsersMethods = new GetUsersMethods(1, 10);
+        GetUsersMethods getUsersMethods = new GetUsersMethods();
         Response response = getUsersMethods.callAPI();
         List<String> ids = response.jsonPath().getList("data.id");
         String id = ids.get(new Random().nextInt(ids.size()));
