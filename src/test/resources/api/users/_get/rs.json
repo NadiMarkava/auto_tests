@@ -1,0 +1,20 @@
+{
+  "id": "regex:\\b[a-z0-9]{24}\\b",
+  "title": "regex:mr|miss|(mrs)|ms",
+  "firstName": "type:String",
+  "lastName": "type:String",
+  "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg",
+  "gender": "regex:male|female",
+  "email": "regex:[A-Za-z0-9-_.]+@example\\.com",
+  "dateOfBirth": "type:String",
+  "phone": "type:String",
+  "location": {
+    "street": "type:String",
+    "city": "type:String",
+    "state": "type:String",
+    "country": "type:String",
+    "timezone": "type:String"
+  },
+  "registerDate": "type:String",
+  "updatedDate": "type:String"
+}

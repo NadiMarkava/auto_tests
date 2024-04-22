@@ -1,0 +1,5 @@
+{
+  <#if puttitle??>"title": "${puttitle}",</#if>
+  <#if putfirstName??>"firstName": "${putfirstName}",</#if>
+  <#if putlastName??>"lastName": "${putlastName}"</#if>
+}

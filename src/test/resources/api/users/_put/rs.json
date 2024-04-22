@@ -1,0 +1,9 @@
+{
+  "id": "regex:\\b[a-z0-9]{24}\\b",
+  <#if puttitle??>"title": "${puttitle}",</#if>
+  <#if putfirstName??>"firstName": "${putfirstName}",</#if>
+  <#if putlastName??>"lastName": "${putlastName}",</#if>
+  "email": "regex:[A-Za-z0-9-_.]+@example\\.com",
+  "registerDate": "type:String",
+  "updatedDate": "type:String"
+}
