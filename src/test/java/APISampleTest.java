@@ -10,12 +10,11 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Random;
 
 import static api.UsersAPIUtil.postUserAndGetId;
+import static org.testng.Assert.assertEquals;
 
 public class APISampleTest implements IAbstractTest {
 
@@ -69,11 +68,11 @@ public class APISampleTest implements IAbstractTest {
     @MethodOwner(owner = "nknysh")
     @TestPriority(Priority.P1)
     public void testDeleteUsers() throws IOException {
-        String deletePath = "src/test/resources/api/users/_delete/rs.json";
         String id = postUserAndGetId();
         DeleteUserByIdMethod deleteUserMethod = new DeleteUserByIdMethod(id);
-        String.format(Files.readString(Path.of(deletePath)), id);
-        deleteUserMethod.callAPIExpectSuccess();
+        Response response = deleteUserMethod.callAPIExpectSuccess();
+        assertEquals(response.path("id").toString(), id, "Ids are not equal!");
         deleteUserMethod.validateResponse();
     }
 }
+
