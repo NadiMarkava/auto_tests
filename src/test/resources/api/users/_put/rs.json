@@ -1,5 +1,5 @@
 {
-  "id": "regex:[a-z0-9]{24}",
+  "id": "regex:\\b[a-z0-9]{24}\\b",
   <#if puttitle??>"title": "${puttitle}",</#if>
   <#if putfirstName??>"firstName": "${putfirstName}",</#if>
   <#if putlastName??>"lastName": "${putlastName}",</#if>

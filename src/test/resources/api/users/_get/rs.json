@@ -1,5 +1,5 @@
 {
-  "id": "regex:[a-z0-9]{24}",
+  "id": "regex:\\b[a-z0-9]{24}\\b",
   "title": "regex:mr|miss|(mrs)|ms",
   "firstName": "type:String",
   "lastName": "type:String",

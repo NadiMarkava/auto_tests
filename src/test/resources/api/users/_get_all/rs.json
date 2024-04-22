@@ -1,70 +1,70 @@
 {
   "data": [
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
       "picture": "regex:https:\\/\\/randomuser.me\\/api\\/portraits\\/med\\/(men|women)\\/[a-z0-9]*\\.jpg"
     },
     {
-      "id": "regex:[a-z0-9]{24}",
+      "id": "regex:\\b[a-z0-9]{24}\\b",
       "title": "regex:mr|miss|(mrs)|ms",
       "firstName": "type:String",
       "lastName": "type:String",
